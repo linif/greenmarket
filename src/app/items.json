@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Rose",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Basil",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Alovera",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+   {
+    "id": 3,
+    "name": "sunflower",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+   {
+    "id": 3,
+    "name": "Marygold",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Marygold",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Marygold",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Marygold",
+    "price": 200,
+    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+  }
+]

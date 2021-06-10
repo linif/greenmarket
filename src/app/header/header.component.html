@@ -1,0 +1,18 @@
+<div class="header">
+  <h1>GreenMarket</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Buy</a>
+    <a href="#">About</a>
+    <div class="search-bar">
+      <input type="text" (input)="onUserInput($event)" placeholder="search plants, seeds and decorations"  />
+      <button type="button"><i class="fas fa-search"></i></button>
+    </div>
+  </nav>
+  <div class="user">
+    <button type="button"><i class="fas fa-shopping-cart"></i></button>
+    <button type="button"><i class="far fa-user"></i></button>
+  </div>
+</div>
+
+<p>{{name}}</p>

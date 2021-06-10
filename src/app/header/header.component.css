@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 50px 0;
+  border-bottom: olivedrab 3px solid;
+  padding: 0 0 10px 0;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+
+  width: 50%;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  justify-content: space-evenly;
+
+  width: 10%;
+}
+
+.search-bar input {
+  border: none;
+  width: 200px;
+  height: 30px;
+  padding: 0 0 0 5px;
+}
+
+.search-bar {
+  border: #2e8b57 solid 1px;
+}
+
+.search-bar button {
+  border: none;
+  width: 50px;
+  background-color: #ffffff;
+}
