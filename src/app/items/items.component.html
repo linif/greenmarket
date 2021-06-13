@@ -1,7 +1,7 @@
 <div class="container">
 
-  <div class="card" *ngFor="let item of items ">
-    <div class="card-body">
+  <div class="card" *ngFor="let item of items | searchFilter:finalName"  routerLink="details" (click) = "onUserClick($event)">
+
       <img
         src="https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
         alt="Plant Image"
@@ -10,7 +10,7 @@
         <p class="card-text">{{ item.name }} - &#x20B9;{{ item.price }}</p>
         <p class="card-text"></p>
         <button type="button" >Add to cart</button>
-      </div>
+
 
 
     </div>

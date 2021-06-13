@@ -3,48 +3,48 @@
     "id": 1,
     "name": "Rose",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a rose plant"
   },
   {
     "id": 2,
     "name": "Basil",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a basil plant"
   },
   {
     "id": 3,
     "name": "Alovera",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a alovera plant"
   },
    {
-    "id": 3,
+    "id": 4,
     "name": "sunflower",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a sunflower plant"
   },
    {
-    "id": 3,
+    "id": 5,
     "name": "Marygold",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a marygold plant"
   },
   {
-    "id": 3,
-    "name": "Marygold",
+    "id": 6,
+    "name": "Lilly",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a Lilly plant"
   },
   {
-    "id": 3,
-    "name": "Marygold",
+    "id": 7,
+    "name": "Spider Plant",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is a Spider plant"
   },
   {
-    "id": 3,
-    "name": "Marygold",
+    "id": 8,
+    "name": "Ivy Plant",
     "price": 200,
-    "image":"https://image.shutterstock.com/image-photo/decorative-monstera-tree-planted-white-600w-1368333254.jpg"
+    "details":"This is an Ivy plant"
   }
 ]

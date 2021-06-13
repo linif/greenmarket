@@ -1,2 +1,4 @@
-<app-header></app-header>
-<app-items></app-items>
+<app-header (sendName)="itemConnect($event)"></app-header>
+<app-items [finalName] = 'sendToItems'></app-items>
+<router-outlet></router-outlet>
+

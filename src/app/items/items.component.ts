@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import item from '../items.json';
 
 
-interface Items {
+export interface Items {
   id: Number;
   name: String;
   price: Number;
-  image: String;
+  details:String;
 }
 
 @Component({
@@ -17,12 +18,18 @@ interface Items {
 export class ItemsComponent implements OnInit {
   items: Items[] = item;
 
-  constructor(
 
-  ) {
+
+  @Input()
+  finalName!: string;
+  constructor(private activateRoute: ActivatedRoute) {
 
   }
 
+  onUserClick(event){
+    var something = event.srcElement;
+    console.log(something)
+  }
 
   ngOnInit() {}
 
