@@ -1,3 +1,13 @@
-<p>details</p>
+<div class="page-body">
+<div class="details-body">
+<button routerLink=''><i class="fas fa-long-arrow-alt-left"></i></button>
+<p>Product Details</p>
 
-
+<div class="details-card" *ngFor="let item of items | productFilter:id">
+  <p>{{item.id}}</p>
+  <p>{{item.name}}</p>
+  <p>{{item.price}}</p>
+  <p>{{item.details}}</p>
+</div>
+</div>
+</div>

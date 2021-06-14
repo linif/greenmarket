@@ -1,48 +1,48 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Rose",
     "price": 200,
     "details":"This is a rose plant"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Basil",
     "price": 200,
     "details":"This is a basil plant"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Alovera",
     "price": 200,
     "details":"This is a alovera plant"
   },
    {
-    "id": 4,
+    "id": "4",
     "name": "sunflower",
     "price": 200,
     "details":"This is a sunflower plant"
   },
    {
-    "id": 5,
+    "id": "5",
     "name": "Marygold",
     "price": 200,
     "details":"This is a marygold plant"
   },
   {
-    "id": 6,
+    "id":"6",
     "name": "Lilly",
     "price": 200,
     "details":"This is a Lilly plant"
   },
   {
-    "id": 7,
+    "id": "7",
     "name": "Spider Plant",
     "price": 200,
     "details":"This is a Spider plant"
   },
   {
-    "id": 8,
+    "id": "8",
     "name": "Ivy Plant",
     "price": 200,
     "details":"This is an Ivy plant"

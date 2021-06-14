@@ -4,10 +4,10 @@ import item from '../items.json';
 
 
 export interface Items {
-  id: Number;
-  name: String;
-  price: Number;
-  details:String;
+  id:string;
+  name: string;
+  price: number;
+  details:string;
 }
 
 @Component({
@@ -27,8 +27,9 @@ export class ItemsComponent implements OnInit {
   }
 
   onUserClick(event){
-    var something = event.srcElement;
-    console.log(something)
+    let id = event.target.previousElementSibling.previousElementSibling;
+    console.log(id);
+
   }
 
   ngOnInit() {}

@@ -7,8 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'GreenMarket';
-  sendToItems = '';
-  itemConnect(named : string){
-    this.sendToItems = named;
-  }
+
 }
