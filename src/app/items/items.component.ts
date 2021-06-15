@@ -22,14 +22,13 @@ export class ItemsComponent implements OnInit {
 
   @Input()
   finalName!: string;
+
   constructor(private activateRoute: ActivatedRoute) {
 
   }
 
   onUserClick(event){
     let id = event.target.previousElementSibling.previousElementSibling;
-    console.log(id);
-
   }
 
   ngOnInit() {}

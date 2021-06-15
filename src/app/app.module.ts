@@ -11,6 +11,7 @@ import { ProductFilterPipe } from './product-details/productFilter.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CartComponent } from './cart/cart.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     SearchFilterPipe,
     ProductFilterPipe,
     ProductDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent
 
   ],
   imports: [
