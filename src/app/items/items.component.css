@@ -26,3 +26,7 @@ img{
   display: flex;
   justify-content: space-between;
 }
+
+.id{
+  display: none;
+}

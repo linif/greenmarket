@@ -8,6 +8,8 @@
       <div class="product-tags">
         <p class="id">{{item.id}}</p>
         <p class="card-text">{{ item.name }} - &#x20B9;{{ item.price }}</p>
+        <button type="button" (click)="onClickAdd($event)">Add To Cart</button>
+        <button type="button" (click)="onClickRemove($event)">Remove</button>
         <button type="button" (click) = "onUserClick($event)"  ><a [routerLink]="item.id">Details</a></button>
     </div>
   </div>

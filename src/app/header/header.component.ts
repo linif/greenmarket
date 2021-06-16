@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+import { AddToCartService } from '../add-to-cart.service';
 
 
 
@@ -9,6 +10,8 @@ import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   name= 'sagnik'
+
+  cartItemCount = 0
   @Output() sendName = new EventEmitter();
 
   onUserInput(event){
@@ -16,9 +19,12 @@ export class HeaderComponent implements OnInit {
     this.sendName.emit(this.name)
   }
 
-  constructor() { }
+  constructor(private addToCart:AddToCartService) { }
 
   ngOnInit(): void {
+    this.addToCart.getInformation().subscribe((e)=>{
+      this.cartItemCount = e;
+    })
   }
 
 }

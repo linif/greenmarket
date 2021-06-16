@@ -11,6 +11,12 @@
 .page-body{
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
+
+.cart{
+  border: #2f4f4f solid 3px;
+  width: 30%;
+}
+

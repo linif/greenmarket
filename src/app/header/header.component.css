@@ -39,3 +39,8 @@ nav {
   width: 50px;
   background-color: #ffffff;
 }
+
+.cart-button{
+  display: flex;
+  padding: 0 5px;
+}

@@ -11,12 +11,12 @@ export class AddToCartService {
 
   constructor() { }
 
-  sendProductId(id: String){
-    console.log(id);
-    this.subject.next(id);
+  sendInformation(info:any){
+    console.log(info);
+    this.subject.next(info);
   }
 
-  getProductId(){
+  getInformation(){
     return this.subject.asObservable();
   }
 
