@@ -2,22 +2,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AddToCartService {
-
   private subject = new BehaviorSubject<any>(null);
 
-  constructor() { }
+  constructor() {}
 
-  sendInformation(info:any){
-    console.log(info);
+  sendInformation(info: any) {
     this.subject.next(info);
   }
 
-  getInformation(){
+  getInformation() {
     return this.subject.asObservable();
   }
-
 }
