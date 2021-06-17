@@ -7,7 +7,7 @@ import { AddToCartService } from '../add-to-cart.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  name = '';
+  searchBarInputString = '';
 
   cartItemCount = 0;
   @Output() sendName = new EventEmitter();
@@ -15,13 +15,13 @@ export class HeaderComponent implements OnInit {
   constructor(private addToCart: AddToCartService) {}
 
   ngOnInit(): void {
-    this.addToCart.getInformation().subscribe((e) => {
+    this.addToCart.onGetInformation().subscribe((e) => {
       this.cartItemCount = e;
     });
   }
 
   onUserInput(event) {
-    this.name = event.target.value;
-    this.sendName.emit(this.name);
+    this.searchBarInputString = event.target.value;
+    this.sendName.emit(this.searchBarInputString);
   }
 }

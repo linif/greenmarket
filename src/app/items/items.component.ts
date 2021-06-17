@@ -33,13 +33,13 @@ export class ItemsComponent implements OnInit {
 
   onClickAdd() {
     this.counter = this.counter + 1;
-    this.addToCart.sendInformation(this.counter);
+    this.addToCart.onSendInformation(this.counter);
   }
 
   onClickRemove() {
     if (this.counter!=0) {
       this.counter = this.counter - 1;
-      this.addToCart.sendInformation(this.counter);
+      this.addToCart.onSendInformation(this.counter);
 
     } else {
       alert('Cart is Empty');

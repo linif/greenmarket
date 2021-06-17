@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   sendToItems = '';
-  itemConnect(named: string) {
-    this.sendToItems = named;
+  itemConnect(getString: string) {
+    this.sendToItems = getString;
   }
 }

@@ -9,11 +9,11 @@ export class AddToCartService {
 
   constructor() {}
 
-  sendInformation(info: any) {
+  onSendInformation(info: any) {
     this.subject.next(info);
   }
 
-  getInformation() {
+  onGetInformation() {
     return this.subject.asObservable();
   }
 }
