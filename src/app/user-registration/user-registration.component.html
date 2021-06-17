@@ -1,0 +1,39 @@
+<div class="registration-page">
+  <div class="registration-box">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-block">
+        <label for="name">Name:</label>
+        <input type="text" id="name" ngModel name="name" required #namevalidator="ngModel">
+        <p class="warning" *ngIf="!namevalidator.valid && namevalidator.touched">*This field is a required field</p>
+      </div>
+
+      <div class="form-block">
+        <label for="username">Username:</label>
+        <input type="text" id="username" ngModel name="username" required #usernamevalidator = "ngModel"/>
+        <p class="warning" *ngIf="!usernamevalidator.valid && usernamevalidator.touched">*This field is a required field</p>
+      </div>
+
+      <div class="form-block">
+        <label for="email">Email:</label>
+        <input type="text" id="email" ngModel name="email" email required #emailvalidator="ngModel"/>
+        <p class="warning" *ngIf="!emailvalidator.valid && emailvalidator.touched">*Not a valid email address</p>
+      </div>
+
+      <div class="form-block">
+        <label for="password">Password</label>
+        <input type="password" id="password" ngModel name="password" required #passwordvalidator = "ngModel"/>
+        <p class="warning" *ngIf="!passwordvalidator.valid && passwordvalidator.touched">*This field is a required field</p>
+      </div>
+
+      <div class="form-block">
+        <label for="mobile">Mobile No. :</label>
+        <input type="text" id="mobile" ngModel name="mobile" required #mobilevalidator = "ngModel"/>
+        <p class="warning" *ngIf="!mobilevalidator.valid && mobilevalidator.touched">*This field is a required field</p>
+      </div>
+
+      <div class="form-block">
+        <button type="submit" [disabled]="!f.valid">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

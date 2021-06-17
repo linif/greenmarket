@@ -31,16 +31,17 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClickAdd() {
+  onClickAdd(itemId : any) {
     this.counter = this.counter + 1;
     this.addToCart.onSendInformation(this.counter);
+    this.addToCart.onSendCartData(itemId);
   }
 
-  onClickRemove() {
-    if (this.counter!=0) {
+  onClickRemove(itemId:any) {
+    if (this.counter != 0) {
       this.counter = this.counter - 1;
       this.addToCart.onSendInformation(this.counter);
-
+      this.addToCart.onSendCartData(itemId);
     } else {
       alert('Cart is Empty');
     }

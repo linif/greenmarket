@@ -10,8 +10,9 @@
     </div>
   </nav>
   <div class="user">
+    <button type="button" routerLink="/registration">Register</button>
     <button class="cart-button" type="button" routerLink="cart"><i class="fas fa-shopping-cart"></i><p>-{{ cartItemCount }}</p></button>
-    <button type="button"><i class="far fa-user"></i></button>
+    <p class="display-username" *ngIf="usersName">{{'('+usersName+')'}}</p>
   </div>
 </div>
 

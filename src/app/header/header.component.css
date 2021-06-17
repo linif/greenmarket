@@ -18,9 +18,13 @@ nav {
 
 .user {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 
-  width: 10%;
+  width: 15%;
+}
+
+.user button{
+  margin: 0px 5px;
 }
 
 .search-bar input {
@@ -43,4 +47,9 @@ nav {
 .cart-button{
   display: flex;
   padding: 0 5px;
+}
+
+.display-username{
+  margin: 0px 10px;
+  color: #146314;
 }

@@ -17,13 +17,20 @@ export interface Items {
 })
 export class CartComponent implements OnInit {
   items: Items[] = item;
-  cart: any = [];
+  cart:any=[];
+  cartItemQuantity = '0';
 
-
-  constructor() {}
+  constructor(private cartService : AddToCartService) {}
 
   ngOnInit(): void {
+    this.cartService.onGetInformation().subscribe((cartQuant) =>{
+      this.cartItemQuantity = String(cartQuant);
 
+    this.cartService.onGetCartData().subscribe((cartData)=>{
+      this.cart.push(cartData);
+      console.log(this.cart);
+    })
+    })
   }
 }
 

@@ -12,11 +12,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
-  {path:':id', component:ProductDetailsComponent},
-  {path:'cart', component:CartComponent}
+  {path:'registration', component:UserRegistrationComponent},
+  {path:'cart', component:CartComponent},
+  {path:':id', component:ProductDetailsComponent}
+
 
 ];
 
@@ -29,7 +32,8 @@ const appRoutes: Routes = [
     ProductFilterPipe,
     ProductDetailsComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    UserRegistrationComponent
 
   ],
   imports: [

@@ -1,0 +1,41 @@
+.registration-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registration-box{
+  border:#107553 solid 2px;
+  box-shadow:0 0 10px #cd853f;
+  border-radius: 10px;
+  width: 40%;
+  height: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-block{
+  margin: 30px 10px;
+  display: flex;
+
+}
+
+.form-block label{
+  margin: 0px 5px;
+}
+
+.form-block input{
+  width: 50%;
+  height: 25px;
+}
+
+input.ng-invalid.ng-touched{
+  border: solid #ff0000 1px;
+}
+
+.warning{
+  color: #dc143c;
+  margin: 0px 5px;
+}
