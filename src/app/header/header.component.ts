@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
 
     this.registor.onGetRegistrationName().subscribe((NameOfUser) =>{
       this.usersName = NameOfUser;
-      console.log(this.usersName)
     })
   }
 

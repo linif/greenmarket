@@ -16,6 +16,19 @@
   margin: 40px 30px;
 }
 
+.form-address-block{
+  margin: 40px 30px;
+}
+
+.address-heading{
+  display: flex;
+  align-items: center;
+}
+.address-fields input{
+  width: 50%;
+  height:20px;
+  margin: 10px 5px;
+}
 .warning{
   color: #dc143c;
 }
@@ -24,4 +37,9 @@
   color: #8b0000;
   align-self: flex-end;
   margin: 5px;
+}
+
+.AddAddressButton{
+  padding: 3px;
+  margin: 0 10px
 }

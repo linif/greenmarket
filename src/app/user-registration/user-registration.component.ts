@@ -32,16 +32,16 @@ export class UserRegistrationComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
       ]),
-      address: new FormArray([]),
+      address: new FormArray([new FormControl(null,Validators.required)]),
     });
   }
 
   onSubmit() {
     console.log(this.registrationForm);
-    // this.sendUsername.onSendRegistrationName(
-    //   this.registrationForm.get('username').value
-    // );
-    // this.router.navigate(['']);
+    this.sendUsername.onSendRegistrationName(
+      this.registrationForm.get('username').value
+    );
+    this.router.navigate(['']);
   }
 
   onAddAddress(){
@@ -51,5 +51,9 @@ export class UserRegistrationComponent implements OnInit {
 
   getControls() {
     return (this.registrationForm.get('address') as FormArray).controls;
+  }
+
+  onRemoveAddress(index:any){
+    (<FormArray>this.registrationForm.get('address')).removeAt(index);
   }
 }

@@ -92,11 +92,14 @@
         >
       </div>
 
-      <div class="form-block" formArrayName="address">
-        <h3>Address</h3>
-        <button type="button" (click)="onAddAddress()">Add Address</button>
-        <div class="address-field" *ngFor="let addressControl of getControls(); let i = index">
-          <input type="text" formControlName="i">
+      <div class="form-address-block" formArrayName="address">
+        <div class="address-heading">
+          <h2>*Address : </h2>
+          <button class="AddAddressButton" type="button" (click)="onAddAddress()"><i class="fas fa-plus-circle"></i></button>
+        </div>
+        <div class="address-fields" *ngFor="let addressControl of getControls(); let i = index">
+          <input type="text" [formControlName]="i" placeholder="Apartment/House name, Block, Area, Locality, City, State and Pincode">
+          <button type="button" class="RemoveAddress" (click)="onRemoveAddress(i)"><i class="fas fa-minus-circle"></i></button>
         </div>
       </div>
 
