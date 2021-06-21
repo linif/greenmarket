@@ -1,41 +1,27 @@
 .registration-page{
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .registration-box{
-  border:#107553 solid 2px;
-  box-shadow:0 0 10px #cd853f;
-  border-radius: 10px;
-  width: 40%;
-  height: 50%;
-  padding: 20px;
+  background-color: #f1efef;
+  width: 80%;
+  height: fit-content;
+  margin: 30px 0 0 0 ;
   display: flex;
   flex-direction: column;
 }
 
 .form-block{
-  margin: 30px 10px;
-  display: flex;
-
-}
-
-.form-block label{
-  margin: 0px 5px;
-}
-
-.form-block input{
-  width: 50%;
-  height: 25px;
-}
-
-input.ng-invalid.ng-touched{
-  border: solid #ff0000 1px;
+  margin: 40px 30px;
 }
 
 .warning{
   color: #dc143c;
-  margin: 0px 5px;
+}
+
+.important{
+  color: #8b0000;
+  align-self: flex-end;
+  margin: 5px;
 }

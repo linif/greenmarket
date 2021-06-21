@@ -1,38 +1,110 @@
 <div class="registration-page">
   <div class="registration-box">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <p class="important">Important! All the fields marked with a * are required fields</p>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <div class="form-block">
-        <label for="name">Name:</label>
-        <input type="text" id="name" ngModel name="name" required #namevalidator="ngModel">
-        <p class="warning" *ngIf="!namevalidator.valid && namevalidator.touched">*This field is a required field</p>
+        <label for="name">*Name: </label>
+        <input type="text" id="name" formControlName="name" />
+        <span
+          class="warning"
+          *ngIf="
+            registrationForm.get('name').value &&
+            !registrationForm.get('name').valid &&
+            registrationForm.get('name').touched
+          "
+        >
+          *Name must be of more than a single character.
+        </span>
       </div>
 
       <div class="form-block">
-        <label for="username">Username:</label>
-        <input type="text" id="username" ngModel name="username" required #usernamevalidator = "ngModel"/>
-        <p class="warning" *ngIf="!usernamevalidator.valid && usernamevalidator.touched">*This field is a required field</p>
+        <label for="username">*Username: </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          formControlName="username"
+        />
+        <span
+          class="warning"
+          *ngIf="
+            registrationForm.get('username').value &&
+            !registrationForm.get('username').valid &&
+            registrationForm.get('username').touched
+          "
+        >
+          *Username must contain more than 3 characters</span
+        >
       </div>
 
       <div class="form-block">
-        <label for="email">Email:</label>
-        <input type="text" id="email" ngModel name="email" email required #emailvalidator="ngModel"/>
-        <p class="warning" *ngIf="!emailvalidator.valid && emailvalidator.touched">*Not a valid email address</p>
+        <label for="email">*Email: </label>
+        <input type="text" id="email" name="email" formControlName="email" />
+        <span
+          class="warning"
+          *ngIf="
+            registrationForm.get('email').value &&
+            !registrationForm.get('email').valid &&
+            registrationForm.get('email').touched
+          "
+        >
+          *Not a correct email format</span
+        >
       </div>
 
       <div class="form-block">
-        <label for="password">Password</label>
-        <input type="password" id="password" ngModel name="password" required #passwordvalidator = "ngModel"/>
-        <p class="warning" *ngIf="!passwordvalidator.valid && passwordvalidator.touched">*This field is a required field</p>
+        <label for="password">*Password: </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          formControlName="password"
+        />
+        <span
+          class="warning"
+          *ngIf="
+            registrationForm.get('password').value &&
+            !registrationForm.get('password').valid &&
+            registrationForm.get('password').touched
+          "
+        >
+          *Password should be of minimum 8 characters</span
+        >
       </div>
 
       <div class="form-block">
-        <label for="mobile">Mobile No. :</label>
-        <input type="text" id="mobile" ngModel name="mobile" required #mobilevalidator = "ngModel"/>
-        <p class="warning" *ngIf="!mobilevalidator.valid && mobilevalidator.touched">*This field is a required field</p>
+        <label for="mobile">*Contact Number: </label>
+        <input
+          type="text"
+          id="mobile"
+          name="mobile"
+          formControlName="mobileNo"
+        />
+        <span
+          class="warning"
+          *ngIf="
+            registrationForm.get('mobileNo').value &&
+            !registrationForm.get('mobileNo').valid &&
+            registrationForm.get('mobileNo').touched
+          "
+        >
+          *Not a correct mobile number number</span
+        >
+      </div>
+
+      <div class="form-block" formArrayName="address">
+        <h3>Address</h3>
+        <button type="button" (click)="onAddAddress()">Add Address</button>
+        <div class="address-field" *ngFor="let addressControl of getControls(); let i = index">
+          <input type="text" formControlName="i">
+        </div>
       </div>
 
       <div class="form-block">
-        <button type="submit" [disabled]="!f.valid">Register</button>
+        <button type="submit" [disabled]="!registrationForm.valid">
+          Register
+        </button>
+        <button class="back-button" type="button" routerLink="">Back</button>
       </div>
     </form>
   </div>

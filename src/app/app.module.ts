@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ItemsComponent } from './items/items.component';
-import { FormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './items/seachFilter.pipe';
 import { ProductFilterPipe } from './product-details/productFilter.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
 
   ],

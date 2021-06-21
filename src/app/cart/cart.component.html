@@ -1,6 +1,5 @@
 <div>
+  <button type="button" routerLink=''>Back</button>
   <p>cart has {{cartItemQuantity}} items</p>
-  <div>
-    <p *ngFor="let each of cart">each</p>
-  </div>
+  <p [textContent] = "cart"></p>
 </div>
