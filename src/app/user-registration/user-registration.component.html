@@ -1,6 +1,8 @@
 <div class="registration-page">
   <div class="registration-box">
-    <p class="important">Important! All the fields marked with a * are required fields</p>
+    <p class="important">
+      Important! All the fields marked with a * are required fields
+    </p>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <div class="form-block">
         <label for="name">*Name: </label>
@@ -13,7 +15,7 @@
             registrationForm.get('name').touched
           "
         >
-          *Name must be of more than a single character.
+          Name must be of more than a single character.
         </span>
       </div>
 
@@ -33,7 +35,7 @@
             registrationForm.get('username').touched
           "
         >
-          *Username must contain more than 3 characters</span
+          Username must contain more than 3 characters</span
         >
       </div>
 
@@ -48,28 +50,49 @@
             registrationForm.get('email').touched
           "
         >
-          *Not a correct email format</span
+          Not a correct email format</span
         >
       </div>
+      <div formGroupName="passwordGroup">
+        <div class="form-block">
+          <label for="password">*Password: </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            formControlName="password"
+          />
+          <span
+            class="warning"
+            *ngIf="
+              registrationForm.get('passwordGroup.password').value &&
+              !registrationForm.get('passwordGroup.password').valid &&
+              registrationForm.get('passwordGroup.password').touched
+            "
+          >
+            Password should be of minimum 8 characters</span
+          >
+        </div>
 
-      <div class="form-block">
-        <label for="password">*Password: </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          formControlName="password"
-        />
-        <span
-          class="warning"
-          *ngIf="
-            registrationForm.get('password').value &&
-            !registrationForm.get('password').valid &&
-            registrationForm.get('password').touched
-          "
-        >
-          *Password should be of minimum 8 characters</span
-        >
+        <div class="form-block">
+          <label for="confirmPassword">*Confirm Password: </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            formControlName="ConfirmPassword"
+          />
+          <span
+            class="warning"
+            *ngIf="
+              !registrationForm.get('passwordGroup.ConfirmPassword').valid &&
+              registrationForm.get('passwordGroup.ConfirmPassword').touched
+            "
+            >This is a required field</span
+          >
+          <span class="warning" *ngIf="registrationForm.get('passwordGroup').errors['doesnotMatch']">Does Not Match!</span>
+
+        </div>
       </div>
 
       <div class="form-block">
@@ -88,19 +111,48 @@
             registrationForm.get('mobileNo').touched
           "
         >
-          *Not a correct mobile number number</span
+          Not a correct mobile number number</span
         >
       </div>
 
       <div class="form-address-block" formArrayName="address">
         <div class="address-heading">
-          <h2>*Address : </h2>
-          <button class="AddAddressButton" type="button" (click)="onAddAddress()"><i class="fas fa-plus-circle"></i></button>
+          <h2>*Address :</h2>
+          <button
+            class="AddAddressButton"
+            type="button"
+            (click)="onAddAddress()"
+          >
+            <i class="fas fa-plus-circle"></i>
+          </button>
         </div>
-        <div class="address-fields" *ngFor="let addressControl of getControls(); let i = index">
-          <input type="text" [formControlName]="i" placeholder="Apartment/House name, Block, Area, Locality, City, State and Pincode">
-          <button type="button" class="RemoveAddress" (click)="onRemoveAddress(i)"><i class="fas fa-minus-circle"></i></button>
+        <div
+          class="address-fields"
+          *ngFor="let addressControl of getControls(); let i = index"
+        >
+          <input
+            type="text"
+            [formControlName]="i"
+            placeholder="Apartment/House name, Block, Area, Locality, City, State and Pincode"
+          />
+          <button
+            type="button"
+            class="RemoveAddress"
+            (click)="onRemoveAddress(i)"
+          >
+            <i class="fas fa-minus-circle"></i>
+          </button>
         </div>
+      </div>
+
+      <div class="form-block">
+        <label for="mobile">Prefered Plant Variety: </label>
+        <input
+          type="text"
+          id="plantVariety"
+          name="plantVariety"
+          formControlName="PlantVariety"
+        />
       </div>
 
       <div class="form-block">
@@ -112,3 +164,6 @@
     </form>
   </div>
 </div>
+
+<!--  -->
+              <!-- registrationForm.get('passwordGroup.ConfirmPassword').errors['required' ] && -->

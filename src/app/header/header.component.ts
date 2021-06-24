@@ -11,7 +11,7 @@ import { RegistrationService } from '../registration.service';
 export class HeaderComponent implements OnInit {
   searchBarInputString = '';
   usersName = "";
-  cartItemCount = 0;
+  cartItemCount = '';
   @Output() sendName = new EventEmitter();
 
   constructor(private addToCart: AddToCartService, private registor:RegistrationService) {}

@@ -17,23 +17,34 @@ export class UserRegistrationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.registrationForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      username: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-      ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobileNo: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-      ]),
-      address: new FormArray([new FormControl(null,Validators.required)]),
-    });
+    this.registrationForm = new FormGroup(
+      {
+        name: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        username: new FormControl('', [
+          Validators.required,
+          Validators.minLength(4),
+        ]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        mobileNo: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
+        ]),
+        passwordGroup: new FormGroup({
+          password: new FormControl('', [
+            Validators.required,
+            Validators.minLength(8),
+          ]),
+          ConfirmPassword: new FormControl('', [Validators.required]),
+        }, { validators: this.matchPassword.bind(this) }),
+
+        address: new FormArray([new FormControl(null, Validators.required)]),
+        PlantVariety: new FormControl(['']),
+      }
+    );
+    console.log(this.registrationForm);
   }
 
   onSubmit() {
@@ -44,16 +55,23 @@ export class UserRegistrationComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  onAddAddress(){
-    const control = new FormControl(null,Validators.required);
-    (<FormArray>this.registrationForm.get('address')).push(control)
+  onAddAddress() {
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.registrationForm.get('address')).push(control);
   }
 
   getControls() {
     return (this.registrationForm.get('address') as FormArray).controls;
   }
 
-  onRemoveAddress(index:any){
+  onRemoveAddress(index: any) {
     (<FormArray>this.registrationForm.get('address')).removeAt(index);
+  }
+
+  matchPassword(group: FormGroup): { [s: string]: boolean } {
+    const password = group.get('password').value;
+    const confirmPassword = group.get('ConfirmPassword').value;
+
+    return password === confirmPassword ? null : { 'doesnotMatch': true };
   }
 }

@@ -8,6 +8,7 @@ export interface Items {
   name: string;
   price: number;
   details: string;
+  count:number;
 }
 
 @Component({

@@ -8,6 +8,7 @@ export interface Items {
   name: string;
   price: number;
   details: string;
+  count:number;
 }
 
 @Component({
@@ -18,17 +19,17 @@ export interface Items {
 export class CartComponent implements OnInit {
   items: Items[] = item;
   cart:any=[];
-  cartItemQuantity = '';
+  cartItemQuantity:any;
 
   constructor(private cartService : AddToCartService) {}
 
   ngOnInit(): void {
+
     this.cartService.onGetInformation().subscribe((cartQuant) =>{
       this.cartItemQuantity = String(cartQuant);
     });
     this.cartService.onGetCartData().subscribe((cartData)=>{
-      this.cart.push(cartData);
-      console.log(this.cart);
+      this.cart = cartData;
     });
   }
 }

@@ -8,6 +8,7 @@ export interface Items {
   name: string;
   price: number;
   details: string;
+  count:number;
 }
 
 @Component({
@@ -20,6 +21,7 @@ export class ItemsComponent implements OnInit {
   ItemName = '';
   ItemPrice = '';
   counter = 0;
+  cartArray = [{}];
 
   @Input()
   finalName!: string;
@@ -34,7 +36,16 @@ export class ItemsComponent implements OnInit {
   onClickAdd(itemId : any) {
     this.counter = this.counter + 1;
     this.addToCart.onSendInformation(this.counter);
-    this.addToCart.onSendCartData(itemId);
+    for(let i = 0;i<this.items.length;i++){
+      if(this.items[i].id===itemId){
+        if(this.cartArray.includes(this.items[i])){
+          this.items[i].count = this.items[i].count + 1;
+          continue;
+        }
+        this.cartArray.push(item[i]);
+      }
+    }
+    this.addToCart.onSendCartData(this.cartArray);
   }
 
   onClickRemove(itemId:any) {
