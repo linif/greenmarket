@@ -1,77 +1,86 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrationService } from '../registration.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  FormArray,
+  FormBuilder,
+  AbstractControl
+} from '@angular/forms';
 import { Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
   styleUrls: ['./user-registration.component.css'],
 })
 export class UserRegistrationComponent implements OnInit {
-  registrationForm: FormGroup;
-  constructor(
-    private sendUsername: RegistrationService,
-    private router: Router
-  ) {}
-
+  registerationForm: FormGroup;
+  constructor(private fb: FormBuilder) {}
   ngOnInit() {
-    this.registrationForm = new FormGroup(
+    this.registerationForm = new FormGroup(
       {
         name: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(4)
         ]),
-        username: new FormControl('', [
-          Validators.required,
-          Validators.minLength(4),
-        ]),
-        email: new FormControl('', [Validators.required, Validators.email]),
+        address: this.fb.array([]),
         mobileNo: new FormControl('', [
           Validators.required,
           Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
+          Validators.maxLength(10)
         ]),
-        passwordGroup: new FormGroup({
-          password: new FormControl('', [
-            Validators.required,
-            Validators.minLength(8),
-          ]),
-          ConfirmPassword: new FormControl('', [Validators.required]),
-        }, { validators: this.matchPassword.bind(this) }),
-
-        address: new FormArray([new FormControl(null, Validators.required)]),
-        PlantVariety: new FormControl(['']),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(6),
+        ]),
+        confirmPassword: new FormControl('', [
+          Validators.required,
+          Validators.minLength(6),
+        ])
+      },
+      {
+        validators: [this.passwordConfirming]
       }
     );
-    console.log(this.registrationForm);
+  }
+  onSubmit() {}
+  address(): FormArray {
+    return this.registerationForm.get('address') as FormArray;
+  }
+  newaddress(): FormGroup {
+    return this.fb.group({
+      address: [''],
+      street: [''],
+      pincode: ['']
+    });
+  }
+  addAlternateAddress() {
+    this.address().push(this.newaddress());
   }
 
-  onSubmit() {
-    console.log(this.registrationForm);
-    this.sendUsername.onSendRegistrationName(
-      this.registrationForm.get('username').value
-    );
-    this.router.navigate(['']);
+  delAlternateAddress(i: number) {
+    this.address().removeAt(i);
+  }
+  get email() {
+    return this.registerationForm.get('email');
   }
 
-  onAddAddress() {
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.registrationForm.get('address')).push(control);
+  get mobileNo() {
+    return this.registerationForm.get('mobileNo');
   }
-
-  getControls() {
-    return (this.registrationForm.get('address') as FormArray).controls;
+  get name() {
+    return this.registerationForm.get('name');
   }
-
-  onRemoveAddress(index: any) {
-    (<FormArray>this.registrationForm.get('address')).removeAt(index);
+  get password() {
+    return this.registerationForm.get('password');
   }
-
-  matchPassword(group: FormGroup): { [s: string]: boolean } {
-    const password = group.get('password').value;
-    const confirmPassword = group.get('ConfirmPassword').value;
-
-    return password === confirmPassword ? null : { 'doesnotMatch': true };
+  get confirmPassword() {
+    return this.registerationForm.get('confirmPassword');
+  }
+  passwordConfirming(c: AbstractControl): { invalid: boolean } {
+    if (c.get('password').value !== c.get('confirmPassword').value) {
+      return { invalid: true };
+    }
+    return null
   }
 }
